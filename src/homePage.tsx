@@ -3,6 +3,7 @@ import React from "react";
 import CardComponent from "./cardComponent";
 import { useNavigate } from "react-router-dom";
 import DoneeForm from "./doneeForm";
+import History from "./myHistory";
 
 export interface DoneeData {
     requestId: number;
@@ -17,6 +18,7 @@ const HomePage = () => {
     const navigate = useNavigate();
     const [showDoneeDetailCard, setIsDoneeDetailCard] = React.useState(false);
     const [showDoneeForm, setIsDoneeForm] = React.useState(false);
+    const [showHistroy, setIsHistory] = React.useState(false);
 
     function donateBlood() {
         setIsDoneeDetailCard(true)
@@ -26,6 +28,11 @@ const HomePage = () => {
     function askForBlood() {
         setIsDoneeForm(true)
         navigate('/ask')
+    }
+
+    function myHistory() {
+        setIsHistory(true)
+        navigate('/history')
     }
 
     return (
@@ -40,7 +47,10 @@ const HomePage = () => {
                     {showDoneeForm && (
                         <DoneeForm />
                     )}
-                    <Button height="100px" width="200px" onPress={() => console.log("my history")}>My history</Button>
+                    <Button height="100px" width="200px" component={Link} to="/history" onPress={() => myHistory()}>My history</Button>
+                    {showHistroy && (
+                        <History />
+                    )}
                 </HStack>
            </Box>
         </>
