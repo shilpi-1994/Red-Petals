@@ -1,7 +1,7 @@
 //@ts-check
 import { Center, extendTheme, NativeBaseProvider, VStack } from "native-base";
 import React from "react";
-import { ExampleModal } from "./components/example-modal";
+import AppLayout from "./src/appLayout";
 
 // Define the config
 const config = {
@@ -14,15 +14,10 @@ export const theme = extendTheme({ config });
 
 export default function App() {
   return (
-    <NativeBaseProvider>
-      <Center
-        _dark={{ bg: "blueGray.900" }}
-        _light={{ bg: "blueGray.50" }}
-        px={4}
-        flex={1}
-      >
+    <NativeBaseProvider theme={theme}>
+      <Center _dark={{ bg: "blueGray.900" }} px={4} flex={1}>
         <VStack space={5} alignItems="center">
-          <ExampleModal />
+          <AppLayout />
         </VStack>
       </Center>
     </NativeBaseProvider>
