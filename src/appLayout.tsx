@@ -4,6 +4,7 @@ import CardComponent from "./cardComponent";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from "./homePage";
 import MenuDrawer from "./mainMenu";
+import DoneeForm from "./doneeForm";
 
 const AppLayout = () => {
     return (
@@ -16,6 +17,7 @@ const AppLayout = () => {
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/donee" element={<CardComponent/>} />
+                <Route path="/ask" element={<DoneeForm />} />
               </Routes>
               </BrowserRouter>
             </Container>
